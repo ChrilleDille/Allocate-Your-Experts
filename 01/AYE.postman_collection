@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "67daad73-af93-4623-a923-c8a8d3e098f8",
+		"name": "AYE project copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects/1e4d6c43-7998-4f94-a06c-1db42db4cc55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"1e4d6c43-7998-4f94-a06c-1db42db4cc55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Project 5\",\r\n\t\"startDate\": \"2020-01-05\",\r\n\t\"endDate\": null,\r\n\t\"isActive\": false\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Project Invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Project 2\",\r\n\t\"startDate\": \"2020-01-05\",\r\n\t\"endDate\": \"2019-01-05\",\r\n\t\"isActive\": false\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project (project 1 --> project x)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Project X\",\r\n        \"startDate\": \"2050-06-15T00:00:00\",\r\n        \"endDate\": \"2097-06-15T00:00:00\",\r\n        \"isActive\": false\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/81e6357e-f10e-4019-af7b-7f0141306166",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"81e6357e-f10e-4019-af7b-7f0141306166"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project Invalid",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Project 2\",\r\n        \"startDate\": \"2019-06-15T00:00:00\",\r\n        \"endDate\": \"2018-06-15T00:00:00\",\r\n        \"isActive\": true,\r\n        \"isCompleted\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/1e4d6c43-7998-4f94-a06c-1db42db4cc55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"1e4d6c43-7998-4f94-a06c-1db42db4cc55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project Invalid Another Example",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Project 2\",\r\n        \"startDate\": \"2019-06-15T00:00:00\",\r\n        \"endDate\": \"2018-06-15T00:00:00\",\r\n        \"isActive\": true,\r\n        \"isCompleted\": false\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/1e4d6c43-7998-4f94-a06c-1db42db4cc55?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"1e4d6c43-7998-4f94-a06c-1db42db4cc55"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Project (project 2)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects/1e4d6c43-7998-4f94-a06c-1db42db4cc55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"1e4d6c43-7998-4f94-a06c-1db42db4cc55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Project Team (project 3)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Project Member (project 3 , Mirela)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam/e0a47365-6e76-4ed8-9504-7bee877a31d5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam",
+						"e0a47365-6e76-4ed8-9504-7bee877a31d5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member To Project (project 3, Anton)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"expert\": {\r\n        \"id\": \"28e9d5c5-623d-4d9d-94bc-c03891384daa\",\r\n        \"name\": \"Anton\",\r\n        \"email\": \"anton@somemail.com\",\r\n        \"gender\": \"Male\"\r\n    },\r\n    \"role\": {\r\n        \"id\": \"c0aa725f-3804-4fe9-a51f-74c3e7780475\",\r\n        \"name\": \"Member\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member(and switch leader) To Project (project 3, Henrik)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"expert\":{\n  \t\"id\": \"603212be-05a5-4ea3-956d-94b83438fd8a\"\n  \t  },\n  \t  \"role\":{\n  \t  \t\"id\": \"757e44bb-84a9-4457-adc1-85d3a323ffb0\",\n  \t  \t\"name\": \"Leader\"\n  \t  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member To Project Conflict (project 1(if updated its project x), Lena)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"expert\":{\n  \t\"id\": \"fa1a4754-9dc6-4ecc-8cef-61f9624249bb\"\n  \t  },\n  \t  \"role\":{\n  \t  \t\"id\": \"c0aa725f-3804-4fe9-a51f-74c3e7780475\",\n  \t  \t\"name\": \"Member\"\n  \t  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/81e6357e-f10e-4019-af7b-7f0141306166/projectteam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"81e6357e-f10e-4019-af7b-7f0141306166",
+						"projectteam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project Member Role (project 3, Christian becomes leader)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"role\":{\n\t\t\"id\": \"757e44bb-84a9-4457-adc1-85d3a323ffb0\",\n\t\t\"name\": \"Leader\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam/c94570ab-a13b-45f6-aec1-fc4994f7da17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam",
+						"c94570ab-a13b-45f6-aec1-fc4994f7da17"
+					]
+				},
+				"description": "No validation so far, everyone can be a leader at the same time which is wrong but no validation-logic implemented yet"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Member from Project (project 3, Mirela)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/projects/e7819413-0aa7-4885-b45e-d3a8ecbc4339/projectteam/e0a47365-6e76-4ed8-9504-7bee877a31d5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"projects",
+						"e7819413-0aa7-4885-b45e-d3a8ecbc4339",
+						"projectteam",
+						"e0a47365-6e76-4ed8-9504-7bee877a31d5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Experts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts/28e9d5c5-623d-4d9d-94bc-c03891384daa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"28e9d5c5-623d-4d9d-94bc-c03891384daa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Expert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Östen\",\n\t\"email\": \"östenmedrösten@somemail.se\",\n\t\"gender\": \"Male\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create  Expert Invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"kalle\",\n\t\"email\": \"robin@somemail.com\",\n\t\"gender\": \"Male\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Expert (Henrik)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lars\",\n\t\"email\": \"lasse@somemail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts/603212be-05a5-4ea3-956d-94b83438fd8a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"603212be-05a5-4ea3-956d-94b83438fd8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Expert Invalid",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"sara\",\n  \"email\": \"sara@@mail.com\",\n  \"gender\": \"Female\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts/603212be-05a5-4ea3-956d-94b83438fd8a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"603212be-05a5-4ea3-956d-94b83438fd8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Expert (Robin)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts/0023e810-eb0a-4309-9b9a-55f4656cddb4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"0023e810-eb0a-4309-9b9a-55f4656cddb4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expert Projects (Christian)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts/c94570ab-a13b-45f6-aec1-fc4994f7da17/expertprojects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"c94570ab-a13b-45f6-aec1-fc4994f7da17",
+						"expertprojects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expert Project (Christian, project 4)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts/c94570ab-a13b-45f6-aec1-fc4994f7da17/expertprojects/08271ef0-710d-4208-8ae0-bffc5d5a07cd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"c94570ab-a13b-45f6-aec1-fc4994f7da17",
+						"expertprojects",
+						"08271ef0-710d-4208-8ae0-bffc5d5a07cd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Project To Expert (Veronica, project 4)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"project\":{\n\t\t\"id\": \"08271ef0-710d-4208-8ae0-bffc5d5a07cd\"\n\t\t\t},\n\t\"role\":{\n\t\t\"id\": \"c0aa725f-3804-4fe9-a51f-74c3e7780475\",\n\t\t\"name\": \"Member\"\n\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts/a5794b8e-4dca-4b3b-8691-351c76740826/expertprojects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"a5794b8e-4dca-4b3b-8691-351c76740826",
+						"expertprojects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Project To Expert Conflict (Christian, project 4)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"project\":{\n\t\t\"id\": \"08271ef0-710d-4208-8ae0-bffc5d5a07cd\"\n\t\t\t},\n\t\"role\":{\n\t\t\"id\": \"c0aa725f-3804-4fe9-a51f-74c3e7780475\",\n\t\t\"name\": \"Member\"\n\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57856/api/experts/c94570ab-a13b-45f6-aec1-fc4994f7da17/expertprojects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"c94570ab-a13b-45f6-aec1-fc4994f7da17",
+						"expertprojects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Project From Expert (Christian, project 4)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57856/api/experts/c94570ab-a13b-45f6-aec1-fc4994f7da17/expertprojects/08271ef0-710d-4208-8ae0-bffc5d5a07cd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57856",
+					"path": [
+						"api",
+						"experts",
+						"c94570ab-a13b-45f6-aec1-fc4994f7da17",
+						"expertprojects",
+						"08271ef0-710d-4208-8ae0-bffc5d5a07cd"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
