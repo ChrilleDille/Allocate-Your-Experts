@@ -1,0 +1,30 @@
+
+
+<div class="container">
+    <div class="row justify-content-center">      
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="card" id="main-card">
+                <div class="card-header text-center">
+                    <h2>Experts</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group" id="experts-ul">
+                       <li class="list-group-item" *ngFor="let expert of experts">
+                           <div class="card bg-primary" >
+                            <div class="card-body">
+                             <div class="userprofile">
+                               <img src="./assets/images/{{expert.gender|lowercase}}avatar.png">
+                               <h5>{{expert.name}}</h5>
+                             </div>
+                            </div>
+                           </div>
+                       </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+
+#main-container {
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#main-row {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#main-card {
+    padding: 0;
+   
+}
+
+   
+#experts-ul {
+    display: inline-block;
+    margin: 20px 0 0 50px;
+    min-height: 68vh;
+}
+
+    #experts-ul .list-group-item {
+        float: left;
+        padding: 5px;
+        border: 0;
+        z-index: 10;
+        margin-left: 4px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+    }
+
+    #experts-ul .card {
+        background-color: rgb(3, 169, 244);
+        width: 155px;
+        height: 185px;
+        text-align: center;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+
+
+.userprofile {
+    width: 100%;
+    clear: both;
+}
+
+    .userprofile img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .userprofile h5 {
+        margin: 3px 0 3px 0;
+        font: Arial bolder;
+        color: white;
+        font-size: 15px;
+    }
+
+   
