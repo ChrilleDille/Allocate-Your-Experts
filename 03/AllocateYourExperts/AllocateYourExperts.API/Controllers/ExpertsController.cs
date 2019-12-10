@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AllocateYourExperts.API.Controllers
 {
@@ -61,8 +62,8 @@ namespace AllocateYourExperts.API.Controllers
         }
 
         [HttpPut("{expertId}")]
-        public ActionResult<ExpertDto> UpdateExpert(Guid expertId,
-            ExpertForCreationDto expertInput)
+        public ActionResult<ExpertDto> UpdateExpert(Guid expertId, 
+            ExpertForCreationDto expertInput) 
         {
             if (!expertRepository.ExpertExist(expertId))
             {
@@ -74,12 +75,12 @@ namespace AllocateYourExperts.API.Controllers
             expertRepository.Save();
 
             var expertToReturn = mapper.Map<ExpertDto>(expertRepository.GetExpert(expertId));
-            return CreatedAtRoute("GetExpert", new { expertId = expertToReturn.Id },
+            return CreatedAtRoute("GetExpert", new {expertId = expertToReturn.Id},
                 expertToReturn);
         }
 
         [HttpDelete("{expertId}")]
-        public ActionResult DeleteExpert(Guid expertId)
+        public ActionResult DeleteExpert(Guid expertId) 
         {
             if (!expertRepository.ExpertExist(expertId))
             {

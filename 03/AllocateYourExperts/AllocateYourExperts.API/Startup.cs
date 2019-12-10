@@ -1,14 +1,13 @@
+using System;
 using AllocateYourExperts.DataAccess;
 using AllocateYourExperts.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
 namespace AllocateYourExperts.API
 {
@@ -30,13 +29,9 @@ namespace AllocateYourExperts.API
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IExpertRepository, ExpertRepository>();
 
-            services.AddDbContext<AYEDbContext>(options => {
-                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AYEDb;Trusted_Connection=True;");
-            });
-
-            services.AddSpaStaticFiles(configuration =>
+            services.AddDbContext<AYEDbContext>(options =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AYEDb;Trusted_Connection=True;");
             });
         }
 
@@ -46,28 +41,20 @@ namespace AllocateYourExperts.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-            
+
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => 
+            FileServerOptions fileServerOptions = new FileServerOptions();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("draganddropexample.html");
+
+            app.UseFileServer(fileServerOptions);
+            app.UseStaticFiles();
+            //app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-
-            app.UseSpa(spa =>
-            {              
-
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
             });
         }
     }

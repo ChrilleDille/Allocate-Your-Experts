@@ -1,8 +1,11 @@
-﻿using AllocateYourExperts.Models.ProjectTeamDtos;
+﻿using AllocateYourExperts.DataAccess;
+using AllocateYourExperts.Models;
+using AllocateYourExperts.Models.ProjectTeamDtos;
 using AllocateYourExperts.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AllocateYourExperts.API.Controllers
@@ -49,9 +52,9 @@ namespace AllocateYourExperts.API.Controllers
                 return NotFound();
             }
 
-            var teamMemberToReturn = projectRepository.GetProjecTeamMap(projectId)
+            var teamMember = projectRepository.GetProjecTeamMap(projectId)
                 .Members.FirstOrDefault(tm => tm.Expert.Id == expertId);
-            return Ok(teamMemberToReturn);
+            return Ok(teamMember);
 
         }
 
@@ -98,14 +101,11 @@ namespace AllocateYourExperts.API.Controllers
                         member.Role.Id);
             projectRepository.Save();
 
-            var teamMemberToReturn = projectRepository.GetProjecTeamMap(project.Id)
+            var teamMemberToReturn = projectRepository.GetProjecTeamMap(projectId)
                 .Members.FirstOrDefault(tm => tm.Expert.Id == member.Expert.Id);
-            return CreatedAtRoute("GetProjectTeamMember", new
-            {
-                projectId = project.Id,
-                expertId = teamMemberToReturn.Expert.Id
-            },
-            teamMemberToReturn);
+            return CreatedAtRoute("GetProjectTeamMember", new { projectId = project.Id, 
+                expertId = teamMemberToReturn.Expert.Id},
+            teamMemberToReturn);          
         }
 
         [HttpPut("{expertId}")]
@@ -130,7 +130,7 @@ namespace AllocateYourExperts.API.Controllers
                 if (projectRepository.ProjectAlreadyHaveOneLeader(project.Id))
                 {
                     var currentProjectLeader = project.ProjectExperts.
-                      FirstOrDefault(pe => pe.Role.Id
+                      FirstOrDefault(pe => pe.Role.Id 
                       == member.Role.Id)
                       .Expert;
 
@@ -148,7 +148,7 @@ namespace AllocateYourExperts.API.Controllers
 
             projectRepository.Save();
 
-            var teamMemberToReturn = projectRepository.GetProjecTeamMap(project.Id)
+            var teamMemberToReturn = projectRepository.GetProjecTeamMap(projectId)
                 .Members.FirstOrDefault(tm => tm.Expert.Id == expertId);
             return CreatedAtRoute("GetProjectTeamMember", new { projectId = project.Id, expertId = expertId },
             teamMemberToReturn);
@@ -172,5 +172,6 @@ namespace AllocateYourExperts.API.Controllers
             projectRepository.Save();
             return NoContent();
         }
+
     }
 }

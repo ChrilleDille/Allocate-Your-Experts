@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AllocateYourExperts.API.Controllers
 {
     [ApiController]
     [Route("api/projects")]
-    public class ProjectsController : Controller
+    public class ProjectsController : ControllerBase
     {
         private readonly IProjectRepository projectRepository;
         private readonly IMapper mapper;
