@@ -66,7 +66,8 @@ namespace AllocateYourExperts.Services
             }
 
             var expertToUpdate = this.GetExpert(expertId);
-            expertToUpdate.Name = expert.Name;
+            expertToUpdate.FirstName = expert.FirstName;
+            expertToUpdate.LastName = expert.LastName;
             expertToUpdate.Email = expert.Email;
         }
 

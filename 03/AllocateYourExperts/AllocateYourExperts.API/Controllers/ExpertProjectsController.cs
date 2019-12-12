@@ -47,8 +47,9 @@ namespace AllocateYourExperts.API.Controllers
             if (!expertRepository
                 .ProjectIsAssociatedWithExpert(expertId, projectId))
             {
+                var expert = expertRepository.GetExpert(expertId);
                 return NotFound($"The project you are trying to reach has no connection to " +
-                    $"{expertRepository.GetExpert(expertId).Name}");
+                    $"{expert.FirstName} {expert.LastName}");
             }
 
             var projectAndRole = expertRepository.GetExpertWithProjectsMap(expertId)
@@ -72,7 +73,8 @@ namespace AllocateYourExperts.API.Controllers
             {
                 var expertProject = expert.ExpertProjects
                     .FirstOrDefault(ep => ep.ProjectId == projectAndRole.Project.Id);
-                return Conflict($"{expertProject.Project.Name} is already associated with {expertProject.Expert.Name}");
+                return Conflict($"{expertProject.Project.Name} is already associated with " +
+                    $"{expertProject.Expert.FirstName} {expertProject.Expert.LastName}");
             }
 
             expertRepository.AddExpertProject(expert.Id, projectAndRole.Project.Id);

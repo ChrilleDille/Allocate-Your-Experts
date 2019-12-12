@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Expert } from '../models/expert.model';
 
 @Component({
-  selector: 'app-list-experts',
   templateUrl: './list-experts.component.html',
   styleUrls: ['./list-experts.component.css']
 })

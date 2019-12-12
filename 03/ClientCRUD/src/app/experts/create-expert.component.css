@@ -1,0 +1,28 @@
+
+.card{
+    margin-top: 5vh;
+}
+
+.card-header{     
+    border-radius: 2px;
+    /* background-color: rgb(3,160,244); */
+    
+}
+
+.card-header h3{
+    margin: 5px 0 0 30px;  
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.card-body{
+    min-height: 30vh;
+    border: 2px black thin;
+}
+
+/* .form-control{
+ border-radius: 0;   
+ border-top: 0;
+ border-right: 0;
+ border-left: 0;
+} */

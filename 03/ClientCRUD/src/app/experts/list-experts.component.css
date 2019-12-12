@@ -1,22 +1,14 @@
 
-#main-container {
-    padding: 0;
-    width: 100%;
+.row {
+    margin: 0;   
     min-height: 100vh;
-}
-
-#main-row {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
+    background-color: blue;
 }
 
 #main-card {
-    padding: 0;
-   
-}
+    padding: 0;   
+}   
 
-   
 #experts-ul {
     display: inline-block;
     margin: 20px 0 0 50px;

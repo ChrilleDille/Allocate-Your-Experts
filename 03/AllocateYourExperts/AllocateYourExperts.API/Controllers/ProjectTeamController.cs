@@ -76,7 +76,8 @@ namespace AllocateYourExperts.API.Controllers
                     .FirstOrDefault(pe => pe.ExpertId
                     == member.Expert.Id);
 
-                return Conflict($"{projectExpert.Expert.Name} is already a member of {projectExpert.Project.Name}");
+                return Conflict($"{projectExpert.Expert.FirstName} {projectExpert.Expert.LastName} " +
+                    $"is already a member of {projectExpert.Project.Name}");
             }
 
             if (projectRepository

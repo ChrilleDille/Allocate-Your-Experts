@@ -25,35 +25,40 @@ namespace AllocateYourExperts.DataAccess
                 new Expert()
                 {
                     Id = Guid.Parse("c94570ab-a13b-45f6-aec1-fc4994f7da17"),
-                    Name = "Christian",
+                    FirstName = "Christian",
+                    LastName = "Griffin",
                     Email = "chrille@somemail.com",
                     Gender = "Male"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("e0a47365-6e76-4ed8-9504-7bee877a31d5"),
-                    Name = "Mirela",
+                    FirstName = "Mirela",
+                    LastName = "Flummoic",
                     Email = "lela@somemail.com",
                     Gender = "Female"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("28e9d5c5-623d-4d9d-94bc-c03891384daa"),
-                    Name = "Anton",
+                    FirstName = "Anton",
+                    LastName = "Andersson",
                     Email = "anton@somemail.com",
                     Gender = "Male"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("fa1a4754-9dc6-4ecc-8cef-61f9624249bb"),
-                    Name = "Lena",
+                    FirstName = "Lena",
+                    LastName = "Tapper",
                     Email = "lena@somemail.com",
                     Gender = "Female"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("3fe1f89f-ead1-4f4c-ba58-6d8cf5ae31be"),
-                    Name = "Håkan",
+                    FirstName = "Håkan",
+                    LastName = "Fridolfsson",
                     Email = "hakan@somemail.com",
                     Gender = "Male"
 
@@ -61,35 +66,40 @@ namespace AllocateYourExperts.DataAccess
                 new Expert()
                 {
                     Id = Guid.Parse("91f29e45-000a-46c4-93ac-bf50d6bb6164"),
-                    Name = "Josefine",
+                    FirstName = "Josefine",
+                    LastName = "Flygmaskin",
                     Email = "jossan@somemail.com",
                     Gender = "Female"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("603212be-05a5-4ea3-956d-94b83438fd8a"),
-                    Name = "Henrik",
+                    FirstName = "Henrik",
+                    LastName = "Holmqvist",
                     Email = "henke@somemail.com",
                     Gender = "Male"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("a5794b8e-4dca-4b3b-8691-351c76740826"),
-                    Name = "Veronica",
+                    FirstName = "Veronica",
+                    LastName = "Molin",
                     Email = "virre@somemail.com",
                     Gender = "Female"
                 },
                 new Expert()
                 {
                     Id = Guid.Parse("0023e810-eb0a-4309-9b9a-55f4656cddb4"),
-                    Name = "Robin",
+                    FirstName = "Robin",
+                    LastName = "Törna",
                     Email = "robin@somemail.com",
                     Gender = "Male"
                 },
                  new Expert()
                  {
                      Id = Guid.Parse("f066fcbb-ebd2-4018-a38c-56e5b02047bd"),
-                     Name = "Jonas",
+                     FirstName = "Jonas",
+                     LastName = "Argman",
                      Email = "jonas@somemail.com",
                      Gender = "Male"
                  }

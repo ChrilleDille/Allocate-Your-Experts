@@ -4,14 +4,16 @@ using AllocateYourExperts.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AllocateYourExperts.DataAccess.Migrations
 {
     [DbContext(typeof(AYEDbContext))]
-    partial class AYEDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191212154335_expertPropertyFirstAndLastNameAdded")]
+    partial class expertPropertyFirstAndLastNameAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
