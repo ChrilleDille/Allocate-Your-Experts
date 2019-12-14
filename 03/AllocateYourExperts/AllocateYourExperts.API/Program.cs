@@ -27,8 +27,8 @@ namespace AllocateYourExperts.API
                 context.Database.EnsureDeleted();
                 context.Database.Migrate();
             }
-
-            host.Run();
+                        
+            host.Run();            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
