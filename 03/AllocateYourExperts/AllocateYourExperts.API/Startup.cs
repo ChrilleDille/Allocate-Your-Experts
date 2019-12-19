@@ -38,11 +38,17 @@ namespace AllocateYourExperts.API
 
             services.AddDbContext<AYEDbContext>(options =>
             {
-                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb\SQLEXPRESS;Database=AYEDb;Trusted_Connection=True;");
+                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AYEDb;Trusted_Connection=True;");
             });
+
+            services.AddCors(options => {
+                options.AddPolicy("AllowAngPort",
+                    builder => builder.WithOrigins("http://localhost:5900").AllowAnyHeader().AllowAnyMethod());
+               
+            });
+          
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,6 +59,8 @@ namespace AllocateYourExperts.API
             {
                 app.UseExceptionHandler("/Error");
             }
+
+            app.UseCors("AllowAngPort");
 
             //app.UseStaticFiles();
             //if (!env.IsDevelopment())
@@ -74,18 +82,15 @@ namespace AllocateYourExperts.API
             //        pattern: "{controller}/{action=Index}/{id?}");
             //});
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+            //app.UseSpa(spa =>
+            //{              
+            //     spa.Options.SourcePath = "ClientApp";
 
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
         }
     }
 }
