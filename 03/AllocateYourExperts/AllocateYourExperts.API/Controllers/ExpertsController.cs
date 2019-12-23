@@ -52,6 +52,11 @@ namespace AllocateYourExperts.API.Controllers
         [HttpPost]
         public ActionResult<ExpertDto> CreateExpert(ExpertForCreationDto expertInput)
         {
+            if (expertRepository.GetExperts()
+                .Any(e => e.Email == expertInput.Email))
+            {
+                return Conflict($"{expertInput.Email} already exists");
+            }
             var expertToCreate = mapper.Map<Expert>(expertInput);
             expertRepository.CreateExpert(expertToCreate);
             expertRepository.Save();
@@ -68,6 +73,15 @@ namespace AllocateYourExperts.API.Controllers
             if (!expertRepository.ExpertExist(expertId))
             {
                 return NotFound();
+            }
+            var expert = expertRepository.GetExpert(expertId);
+            if (expert.Email != expertInput.Email)
+            {
+                if (expertRepository.GetExperts()
+                    .Any(e => e.Email == expertInput.Email))
+                {
+                    return Conflict($"Email address {expertInput.Email} already belongs to another expert");
+                }
             }
 
             var expertToUpdate = mapper.Map<Expert>(expertInput);

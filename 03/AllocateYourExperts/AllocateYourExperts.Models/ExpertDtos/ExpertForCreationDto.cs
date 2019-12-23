@@ -21,7 +21,7 @@ namespace AllocateYourExperts.Models.ExpertDtos
         [Required]
         [MaxLength(100)]
         [EmailAddress]
-        [EmailUnique]
+        //[EmailUnique]
         public string Email { get; set; }
 
         [Required]

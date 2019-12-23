@@ -1,33 +1,52 @@
-<div class="row justify-content-center main-row" id="main-row">
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-        <div class="card" id="main-card">
-            <div class="card-header text-center bg-primary">
-                <h2>Experts</h2>
+<div class="row justify-content-center">
+  <div class="col-lg-7 col-md-8 col-sm-10 col-xs-12">
+    <div class="card" *ngIf="expert">
+      <div class="card-header bg-primary">
+        <h3>{{expert.firstName}} {{expert.lastName}}</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <img src="assets/images/{{expert.gender | lowercase}}avatar.png"/>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 50px;">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <!-----------------------------make it responsive --------------------------------------------------------------------->
+
+                <h5>Email:</h5>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <span>{{expert.email}}</span>
+              </div>              
             </div>
-            <div class="card-body">
-                <div class="row justify-content-center">
-                    <div class="col-6">
-                          <button class="btn-default btn-block" style="cursor: pointer;"
-                          (click)="navigate()">
-                            Add New Expert
-                          </button>
-                    </div>
-                </div>
-                <ul class="list-group" id="experts-ul">
-                    <li class="list-group-item pointer" *ngFor="let expert of experts" (click)="onClick(expert.id)">
-                        <div class="card bg-primary">
-                            <div class="card-body">
-                                <div class="userprofile">
-                                    <img src="./assets/images/{{expert.gender|lowercase}}avatar.png">
-                                    <h5>{{expert.firstName}}<br>{{expert.lastName}}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <h5>Gender:</h5>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <span>{{expert.gender}}</span>
+              </div>
             </div>
-            <div class="card-footer">
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+        <div class="col-1">
+          <button class="btn-warning" (click)="btnEditClick()" style="cursor: pointer; color: white;">
+            Edit
+          </button>
+        </div>
+        <div class="col-2">
+          <button class="btn-danger" (click)="btnRemoveClick()" style="cursor: pointer;">
+            Remove
+          </button>
+        </div>
+        </div>
+         
+        
+      </div>
     </div>
+  </div>
 </div>
