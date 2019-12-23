@@ -1,0 +1,94 @@
+<div class="row justify-content-center">   
+    <div class="col-lg-6 col-md-6 col-sm-10">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h3>Create New</h3>
+            </div>
+            <form class="form" #expertForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="card-body">
+                   
+                    <div class="form-row">
+                        <div class="form-group col-md-6 col-sm-12">
+                            <input type="text" name="firstName" class="form-control" placeholder="First name"
+                                [(ngModel)]="expert.firstName" #firstName="ngModel"
+                                [class.is-invalid]="firstName.invalid && firstName.touched" required
+                                pattern="[A-ZÅÄÖ][a-zåäö]*">
+                            <small class="help-block text-danger"
+                                *ngIf="firstName.errors?.required && firstName.touched">
+                                First name is required
+                            </small>
+                            <small class="help-block text-danger"
+                                *ngIf="firstName.errors?.pattern && firstName.touched">
+                                Invalid first name(format ex: John)
+                            </small>
+                           
+                        </div>
+
+                        <div class="form-group col-md-6 col-sm-12">
+                            <input type="text" name="lastName" class="form-control" placeholder="Last name"
+                                [(ngModel)]="expert.lastName" #lastName="ngModel"
+                                [class.is-invalid]="lastName.errors && lastName.touched" required
+                                pattern="[A-ZÅÄÖ][a-zåäö]*">
+                            <small class="help-block text-danger" *ngIf="lastName.errors?.required && lastName.touched">
+                                Last name is required
+                            </small>
+                            <small class="help-block text-danger" *ngIf="lastName.errors?.pattern && lastName.touched">
+                                Invalid last name(format ex: Smith)
+                            </small>
+                           
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <input type="text" name="email" class="form-control" placeholder="Email"
+                                [(ngModel)]="expert.email" #email="ngModel"
+                                [class.is-invalid]="email.errors && email.touched" required email>
+                            <small class="help-block text-danger" *ngIf="email.errors?.required && email.touched">
+                                Email is required
+                            </small>
+                            <small class="help-block text-danger" *ngIf="email.errors?.email && email.touched">
+                                Invalid Email
+                            </small>
+                        </div>
+                    </div>
+                   
+                    <div class="form-row">
+                        <div class="form-group col" style="margin-left:5px;"
+                            [class.is-invalid]="gender.invalid && gender.touched">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" id="male" name="gender" class="form-check-input" value="Male"
+                                    #gender="ngModel" [(ngModel)]="expert.gender" required>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" id="female" name="gender" class="form-check-input" value="Female"
+                                    #gender="ngModel" [(ngModel)]="expert.gender" required>
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="row" style="margin-left:1px;">
+                                <small class="help-block text-danger" *ngIf="gender.invalid && gender.touched">
+                                    Gender is required
+                                </small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" [disabled]="expertForm.invalid">
+                                Save
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Angular Generated Form Model: {{expertForm.value | json}}
+    <br />
+    <br />
+    Our Expert Model : {{expert | json}} -->
