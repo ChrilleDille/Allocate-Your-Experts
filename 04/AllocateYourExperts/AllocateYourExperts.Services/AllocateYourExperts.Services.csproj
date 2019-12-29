@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AllocateYourExperts.DataAccess\AllocateYourExperts.DataAccess.csproj" />
+    <ProjectReference Include="..\AllocateYourExperts.Helpers\AllocateYourExperts.Helpers.csproj" />
+    <ProjectReference Include="..\AllocateYourExperts.Models\AllocateYourExperts.Models.csproj" />
+  </ItemGroup>
+
+</Project>

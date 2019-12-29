@@ -1,0 +1,33 @@
+<div class="row justify-content-center main-row" id="main-row">
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="card" id="main-card">
+            <div class="card-header text-center bg-primary">
+                <h2>Experts</h2>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                          <button class="btn-default btn-block" style="cursor: pointer;"
+                          (click)="toCreate()">
+                            Add New Expert
+                          </button>
+                    </div>
+                </div>
+                <ul class="list-group" id="experts-ul">
+                    <li class="list-group-item pointer" *ngFor="let expert of experts" (click)="onClick(expert.id)">
+                        <div class="card bg-primary">
+                            <div class="card-body">
+                                <div class="userprofile">
+                                    <img src="./assets/images/{{expert.gender|lowercase}}avatar.png">
+                                    <h5>{{expert.firstName}}<br>{{expert.lastName}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>

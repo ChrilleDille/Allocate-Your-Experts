@@ -1,0 +1,21 @@
+
+    <div *ngIf="messageService.successMessages.length">
+      <div class="alert alert-success alert-dismissible fade show">        
+        <ul>
+          <li *ngFor="let success of messageService.successMessages">{{success}}</li>
+        </ul>
+        <button type="button" class="close" (click)="messageService.clear()">&times;</button>
+    </div>
+    </div>
+   
+    <div *ngIf="messageService.errorMessages.length">
+    <div class="alert alert-danger alert-dismissible fade show" >
+      <ul>
+        <li *ngFor="let error of messageService.errorMessages">{{error}}</li>
+      </ul>
+      <button type="button" class="close" (click)="messageService.clear()">&times;</button>
+  </div>
+   </div>
+    
+
+   
